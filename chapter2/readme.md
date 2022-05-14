@@ -23,6 +23,8 @@ Functions that take any number of arguments but don't return any meaningful valu
 1. void
 2. void
 
+## 2.2 Boolean logic and short circuits
+
 ### 2.2.3 Exercises
 
 1. b
@@ -39,11 +41,11 @@ What if we are using a 4-bit unsigned encoding and try to add 10 + 10? Such a si
 
 The opposite situation, in which we end up with a number that is too small to represent, is called an _arithmetic underflow_.
 
-Three different ways to handle arithmetic overflow and underflow:
+Image you have a integer type using 4 bits to represent a number between 0 and 15, there are three different ways to handle arithmetic overflow and underflow:
 
-1. An odometer wraps around
-2. A dial knob saturates
-3. A pocket calculator errors out
+1. An odometer wraps around - add (0001) to (1111) and get (0000).
+2. A dial knob saturates - add (0001) to (1111) and still get (1111).
+3. A pocket calculator errors out - add (0001) to (1111) and an error is thrown.
 
 #### Detecting overflow and underflow
 
@@ -51,3 +53,28 @@ Three different ways to handle arithmetic overflow and underflow:
 
 1. c
 2. c
+
+## 2.4 Encoding text
+
+### 2.4.1 Breaking text
+
+Javscript represent an emoji with five characters. So use `String.prototype.substring` to break a string which contains emoji may produce result like this: `["....\ud83d", "\udc6e🔑"]`.
+
+### 2.4.2 Encodings
+
+The Unicode standard works with two similar but distinct concepts: characters and graphemes. _Characters_ are the computer representation of text, and _graphemes_ are the symbols users see.
+
+When rendering text, we work with graphemes, and we don't want to break apart a multiple-character grapheme. When encoding text, we work with characters.
+
+PS: I have learned a lot about unicode from thetype.com podcast, which covers much more than this book. Unicode is actually quite complex, use third-party library to take care of such complexity.
+
+### 2.4.3 Encoding libraries
+
+`grapheme-splitter`
+
+### 2.4.4 Exercises
+
+1. d
+2. c
+
+## 2.5 Building data structure with arrays and references
