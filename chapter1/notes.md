@@ -1,3 +1,5 @@
+# Chapter 1 Introduction to typing
+
 ## 1.4 Types of state systems
 
 ### 1.4.1 Dynamic and static typing
