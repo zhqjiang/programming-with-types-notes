@@ -22,3 +22,32 @@ Functions that take any number of arguments but don't return any meaningful valu
 
 1. void
 2. void
+
+### 2.2.3 Exercises
+
+1. b
+
+## 2.3 Common pitfalls of numerical types
+
+adding up 0.10 three times not give us 0.30.
+
+### 2.3.1 Integer types and overflow
+
+#### Overflow and underflow
+
+What if we are using a 4-bit unsigned encoding and try to add 10 + 10? Such a situation is called an _arithmetic overflow_.
+
+The opposite situation, in which we end up with a number that is too small to represent, is called an _arithmetic underflow_.
+
+Three different ways to handle arithmetic overflow and underflow:
+
+1. An odometer wraps around
+2. A dial knob saturates
+3. A pocket calculator errors out
+
+#### Detecting overflow and underflow
+
+### 2.3.4 Exercises
+
+1. c
+2. c
