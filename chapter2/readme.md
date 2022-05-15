@@ -20,8 +20,8 @@ Functions that take any number of arguments but don't return any meaningful valu
 
 ### 2.1.3 Exercises
 
-1. void
-2. void
+1. c
+2. a
 
 ## 2.2 Boolean logic and short circuits
 
@@ -78,3 +78,45 @@ PS: I have learned a lot about unicode from thetype.com podcast, which covers mu
 2. c
 
 ## 2.5 Building data structure with arrays and references
+
+### 2.5.1 Fixed-size arrays
+
+The reason why arrays are a common primitive as oppossed to, say, linked lists is efficiency: because the values are stored one after the other, accessing any one of them is a fast operation.
+
+### 2.5.2 References
+
+### 2.5.3 Efficient lists
+
+### 2.5.4 Binary trees
+
+When representing a binary tree as a fixed-size array, the drawback of this implementation is the amount of additional space required can be unacceptable if the stree is sparse.
+
+Compact binary tree implementation:
+
+```ts
+class TreeNode {
+  value: number;
+  left: TreeNode | undefined;
+  right: TreeNode | undefined;
+
+  constructor(value: number) {
+    this.value = value;
+    this.left = undefined;
+    this.right = undefined;
+  }
+}
+```
+
+### 2.5.5 Associative arrays
+
+Also known as _dictionary_ or _hash table_.
+
+JavaScript/TypeScript arrays are associative arrays. The languages do not provide a fixed-size array primitive type.
+
+### 2.5.6 Implementation trade-offs
+
+Fixed-size arrays have extremely fast read/update capabilities and can represent dense data. For variable-size data structures, reference perform better on append and can represent sparse data more easily.
+
+### 2.5.7 Exercise
+
+1. b
