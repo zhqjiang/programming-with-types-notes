@@ -10,4 +10,4 @@ Dynamic typing does not impose any typing constraints at compile time.
 
 ### 1.4.2 Weak and strong typing
 
-Note that although a type system is either dynamic (type checking at run time) or static(type checking at compile time), its strength lies on a spectrum: the more implicit conversions it performs, the weaker it is.
+Note that although a type system is either dynamic (type checking at run time) or static(type checking at compile time), its strength lies on a spectrum: the more **_implicit conversions_** it performs, the weaker it is.

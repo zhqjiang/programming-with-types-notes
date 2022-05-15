@@ -37,9 +37,9 @@ adding up 0.10 three times not give us 0.30.
 
 #### Overflow and underflow
 
-What if we are using a 4-bit unsigned encoding and try to add 10 + 10? Such a situation is called an _arithmetic overflow_.
+What if we are using a 4-bit unsigned encoding and try to add 10 + 10? Such a situation is called an **_arithmetic overflow_**.
 
-The opposite situation, in which we end up with a number that is too small to represent, is called an _arithmetic underflow_.
+The opposite situation, in which we end up with a number that is too small to represent, is called an **_arithmetic underflow_**.
 
 Image you have a integer type using 4 bits to represent a number between 0 and 15, there are three different ways to handle arithmetic overflow and underflow:
 
@@ -62,7 +62,7 @@ Javscript represent an emoji with five characters. So use `String.prototype.subs
 
 ### 2.4.2 Encodings
 
-The Unicode standard works with two similar but distinct concepts: characters and graphemes. _Characters_ are the computer representation of text, and _graphemes_ are the symbols users see.
+The Unicode standard works with two similar but distinct concepts: characters and graphemes. **_Characters_** are the computer representation of text, and **_graphemes_** are the symbols users see.
 
 When rendering text, we work with graphemes, and we don't want to break apart a multiple-character grapheme. When encoding text, we work with characters.
 
@@ -109,7 +109,7 @@ class TreeNode {
 
 ### 2.5.5 Associative arrays
 
-Also known as _dictionary_ or _hash table_.
+Also known as **_dictionary_** or **_hash table_**.
 
 JavaScript/TypeScript arrays are associative arrays. The languages do not provide a fixed-size array primitive type.
 
