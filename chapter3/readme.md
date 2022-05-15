@@ -80,3 +80,59 @@ Throwing an exception on error is a perfectly valid example of result or error: 
 1. c
 2. d
 3. d
+
+## 3.3 The visitor pattern
+
+### 3.3.1 A naive implementation
+
+### 3.3.2 Using the visitor pattern
+
+The visitor pattern is an operation to be performed on elements of an object structure. This pattern lets you define a new operation without changing the classes of the elements on which it operates.
+
+### 3.3.3 Visiting a variant
+
+```ts
+function visit<T1, T2, T3>(
+  variant: Variant<T1, T2, T3>,
+  func1: (value: T1) => void,
+  func2: (value: T2) => void,
+  func3: (value: T3) => void
+): void {
+  switch (variant.index) {
+    case 0:
+      func1(<T1>variant.value);
+      break;
+    case 1:
+      func2(<T2>variant.value);
+      break;
+    case 2:
+      func3(<T3>variant.value);
+      break;
+    default:
+      throw new Error();
+  }
+}
+```
+
+## 3.4 Algebraic data types
+
+ADTs provide two ways to combine types: product types and sum types
+
+### 3.4.1 Product types
+
+**_Product types_** combine multiple other types into a new type that stores a value from each of the combined types. The product type of types `A`, `B`, and `C` - which we can write as `A x B x C` - contains a value from `A`, a value from `B` and a value from `C`. Tuple and record types are examples of product types. Additionally, records allow us to assign meaningful names to each of their components.
+
+Almost all programming languages provide ways to define record types. Fewer mainstream languages provide syntactic support for sum types.
+
+### 3.4.2 Sum types
+
+Sum types are whta we called either-or types earlier in this chapter.
+
+**_Sum types_** combine multiple other types into a new type that stores a value from any one of the combined types. The sum type of types `A`, `B`, and `C` - which we can write as `A + B + C` - contains a value from `A`, _or_ a value from `B`, `or` a value from `C`. Optional and variant types are examples of sum types.
+
+### 3.4.3 Exercises
+
+1. c
+2. b
+3. c
+4. b
