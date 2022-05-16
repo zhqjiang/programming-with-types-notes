@@ -121,4 +121,15 @@ On the other hand, casting a signed integer to an unsigned integer is dangerous,
 1. a
 2. b
 
+## 4.4 Hiding and restoring type information
 
+A collection with items of the same type, like our bag of cats, is also called a **_homogenous collection_**. Because all items have the same type, we don't need hide thier type information. A collection of items of different types is also known as a **_heterogenous collection_**. In this case, we need to hide some of the typing information to declare such a collection.
+
+### 4.4.1 Heterogenous collections
+
+### 4.4.2 Serialization
+
+### 4.4.3 Exercises
+
+1. b
+2. a
