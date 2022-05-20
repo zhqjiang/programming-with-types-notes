@@ -53,7 +53,7 @@ A common feature of many functional programming language is _lazy evaluation_. I
 
 ### 5.3.2 Exercise
 
-1. a
+1. d - The other implement named functions; this is the only anonymous implementation.
 
 ## 5.4 Using _map_, _filter_, and _reduce_
 
