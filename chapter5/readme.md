@@ -36,3 +36,60 @@ Three kinds of implementation
 2. Implement the preceding connection as a functional state machine with a `process()` function. In a closed connection, `process()` calls a `read()` function that returns a string. If the string is empty, the connection is closed; otherwise, the read string is logged to the console. `read()` is given as `declare function read(): string`.
 
 
+## 5.3 Avoiding expensive computation with lazy values
+
+Another advantage of being able to use functions as any other value is that we can store them and invoke them only when needed.
+
+This idea is to postpone expensive computation as much as possible, in the hope that it may not be needed at all. Because compuatation is expressed as functions, we can pass around functions instead of actual values and call them when and whether we need to the values. This process is called `lazy evaluation`. The opposite is `eager evaluation`.
+
+### 5.3.1 Lambdas
+
+Most modern programming languages support `anonymous functions`, or `lambdas`.  
+
+Lazy evaluation
+
+A common feature of many functional programming language is _lazy evaluation_. In such languages, everything is evaluated as late as possible, and we don't have to be explicit about it. In such languages, `chooseMyRide()` would by default construct neither a `Bike` nor a `Car`. Only when we actually try to use the object returned by `chooseMyRide()` - by calling `ride()` on it, for example - would the `Bike` or `Car` be created.
+
+
+### 5.3.2 Exercise
+
+1. a
+
+## 5.4 Using _map_, _filter_, and _reduce_
+
+### 5.4.1 _map()_
+
+### 5.4.2 _filter()_
+
+### 5.4.3 _reduce()_
+
+> Monoids
+
+If a set `T` with an operation `op` has an identity element and the operation is associative, the resulting algebraic is called a _monoid_.
+
+### 5.4.5 Exercises
+
+1
+
+```ts
+function first<T>(arr: T[], pred: (element: T) => boolean): T | undefined {
+  for (const item of items) {
+    if(pred(item)) {
+      return item;
+    }
+  }
+  
+  return undefined;
+}
+```
+
+2
+
+```ts
+function first<T>(arr: T[], pred: (element: T) => boolean): boolean {
+ return arr.every(pred);
+}
+```
+
+## 5.5 Functional programming
+
