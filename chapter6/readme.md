@@ -91,6 +91,26 @@ Before moving on, let's quickly recap the four ways to implement a counter and t
 
 ### 6.2.5 Exercises
 
+## 6.3 Executing long-running operations asynchronously
 
+### 6.3.1 Synchronous execution
 
+### 6.3.2 Asynchronous execution: callbacks
 
+### 6.3.3 Asynchronous execution models
+
+### 6.3.4 Asynchronous functions recap
+
+### 6.3.5 Exercises
+
+1. d 
+2. b
+3. a
+
+## 6.4 Simplifying asynchronous code
+
+### 6.4.6 Exercises
+
+1. c
+2. b // there is a print error, it should be option b - `catch`
+3. c
