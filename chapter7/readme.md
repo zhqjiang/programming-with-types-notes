@@ -54,3 +54,68 @@ Now that we have a unique name, we can create a property with that name by putti
 1. yes
 2. no
 
+## 7.2 Assigning anything to, assigning to anything
+
+### 7.2.1 Safe deserialization
+
+```ts
+class User {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+function deserialize(input: string): any {
+  return JSON.parse(input);
+}
+
+function greet(user: User): void {
+  console.log(`Hi ${user.name}!`);
+}
+
+function isUser(user: any): user is User {
+  if (user === null || user === undefined)
+    return false;
+    
+  return typeof user.name === 'string';
+}
+
+let user: any = deserialize('{ "name": "Alice" }');
+
+if (isUser(user)) {
+  greet(user);
+}
+
+user = undefined;
+if (isUser(user)) {
+  geet(user);
+}
+```
+
+**TOP TYPE**
+
+A type to which we can assign any value is also called a _top type_ because any other type is a subtype of this type. In other words, this type sits at the top of the subtyping hierachy.
+
+We can start with the `Object` type, which is the supertype of _most_ types in the type systems, with two exceptions: `null` and `undefined`. The TypeScript type system has some great safety features, one of them being the ability to keep `null` and `undefined` values outside the domain of other types.
+
+So our top type, the supertype of absolutely anything, is the sum of these three types: `Object | null | undefined`. This type is actually defined out of the box as `unknown`. Let's rewrite our code to use `unknown`, as shown in the next listing, and then we can discuss the differences between using `any` and `unknown**.
+
+**DIFFERENCE BETWEEN UNKNOWN ADN ANY**
+
+Although we can assign anything to both `unknown` and `any`, there is a difference in how we use a variable of one of these types. In the `unknown` case, we can use the value as some type(such as `User`) only after we confirm that the value actually has that type (as we did with the function that returns the user as `User`). In the `any` case, we can use the value as a value of any other type right away. `any` bypasses type checking.
+
+### 7.2.2 Values for error case
+
+**BOTTOM TYPE**
+
+A type is the subtype of any other type is called a _bottom type_ because it sits at the bottom of the subtyping heirarchy. To be a subtype of any other possible type, it must have the members of any other possible type. Because we can have an infinite number of types and members, the bottom type would have to have an infinite number of members. Because that is impossible, the bottom type is always an empty type: a type for which we can't create an actual value.
+
+A bottom type allows us to pretend that we have a value of any type even if we can't come up with one.
+
+### 7.2.3 Top and bottom types recap
+
+### 7.2.4 Exercises
+
+1. yes
+2. no
