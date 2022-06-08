@@ -119,3 +119,66 @@ A bottom type allows us to pretend that we have a value of any type even if we c
 
 1. yes
 2. no
+
+## 7.3 Allowed substitutions
+
+Some tricker questions:
+
+* What is the subtyping relationship between the sum types `Triangle | Square` and `Triangle | Square | Circle`?
+
+* What is the subtyping relationship between an array of triangles(`Triangle[]`) and array of shapes(`Shape[]`)?
+
+* What is the subtyping relationship between a generic data stucture such as `List<T>`, for `List<Triangle>` and `List<Shape>`?
+
+* What about the function types `() => Shape` and `() => Triangle`?
+
+* Conversely, what about the function type `(argument: Shape) => void` and the function type `(argument: Triangle) => void`?
+
+These questions are important, as they tell us which of these types can be substituted for their subtypes.
+
+### 7.3.1 Subtyping and sum types
+
+`Triangle | Square** is a subtype of `Triangle | Square | Circle**
+
+### 7.3.2 Subtyping and collections
+
+Arrays preserve the subtyping relationship of the underlying types that they are storing.
+
+**COVARIANCE**
+
+A type that preserves the subtying relationship of its underlying type is called _covariant_. An array is covariant because it preserves the subtyping relationship: `Triangle` is a subtype of `Shape`, so `Triangle[]` is a subtype of `Shape[]`.
+
+Vairous languages behave differently when dealing with arrays and collections such as `LinkedList<T>`. In C#, for example, we would have to explicitly state covariance for a type such as `LinkedList<T>` by declaring an interface and using the `out` keyword (`ILinkedList<out T>`). Otherwise, the compiler will not deduce the subtyping relationship.
+
+An alternative to covariance is to simply ignore the subtyping relationship between two given and consider a `LinkedList<Shape>` and `LinkedList<Triangle>` to be types with no subtyping relationship between them. (Neither is a subtype of the other.) This is not case in TypeScript, but it is in C#, in which a `List<Shape>` and a `List<Triangle>` have no subtyping relationship.
+
+**INVARIANCE***
+
+A type that ignores the subtyping relationship of its underlying type is called `invariant`. A C# `List<T>` is invariant because it ignores the subtyping relationship "Triangle is a subtype of a Shape", so `List<Shape>` and `List<Triangle** have no subtype-supertype relationship.
+
+### 7.3.3  Subtyping and function return types
+
+Functions are covariant in their return types
+
+### 7.3.4 Subtyping and function argument types
+
+**CONTRAVARIANCE**
+
+A type that reverses the subtyping relationship of its underlying type is called _contravariant_. In most programming languages, functions are contravariant with regard to their arguments.
+
+We said "most programming languages" earlier. a notable exception is TypeScript. In TypeScript, we can also do the opposite: pass a function that expects a subtype instead of a function that expects a supertype. This choice was an explicit design choice made to facilitate commmon JavaScript programming patterns. It can lead to run-time issues, though.
+
+In TypeScript, If `Triangle` is a subtype of `Shape`, a function of type `(argument: Shape) => void` and a function type `(argument: Triangle) => void` can be substituted for each other. Effectively, they are subtypes of each other. This property is called _bivariance**.
+
+**BIVRIANCE**
+
+Types are bivariant if, from the subtyping relationship of their underlying types, they become subtypes of each other.
+
+### 7.3.6 Exericses
+
+1. Yes
+2. no
+3. yes
+4. yes
+5. yes
+6. no
