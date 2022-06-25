@@ -87,4 +87,92 @@ class UnaryMinusExpression extends UnaryExpression {
 }
 ```
 
+## 8.3 Composing data and behavior
+
+### 8.3.1 Ths has-a rule of thumb
+
+**COMPOSITION AND THE HAS-A RELATIONSHIP** Composition establishs a _has-a_ relationship between a container type and the contained type. If our type is `Circle`, and our contained class is `Point`, the relationship is `Circle` has a `Point` (which defines its center). This is the semantic meaning of composition and a good test to apply to two types to determine whether we should use composition.
+
+### 8.3.2 Composite classes
+
+### 8.3.3 Implementing the adapter pattern
+
+The adapter pattern can make two classes compatible without requiring us to modify eithre of the two classes.
+
+
+```typescript
+namespace GeometryLibrary {
+  export interface ICircle {
+    getCenterX(): number;
+    getCenterY(): number;
+    getDiameter(): number;
+  }
+}
+```
+
+Listing 8.10 CircleAdapter
+
+```typescript
+class CircleAdapter implements GeometryLibrary.ICircle {
+  private circle: Circle;
+  
+  constructor(circle: Circle) {
+    this.circle = circle; 
+  }
+  
+  getCenterX(): number {
+    return this.circle.center.x;
+  }
+  
+  getCenterY(): number {
+    return this.circle.center.y;
+  }
+  
+  getDiameter(): number {
+    return this.circle.radius * 2; 
+  }
+}
+```
+
+The adapter can hide the actual implementation it translates from by marking it as private. This is an interesting application of composition: instead of bringing together several components, we wrap a single component but provide the "glue** it needs to be consumed as another type.
+
+### 8.3.4 Exercises
+
+1. b
+2. Just put engine instance into wing class.
+
+## 8.4 Extending data and behavior
+
+### 8.4.1 Extending behavior with composition
+
+### 8.4.2 Extenidng behavior with mix-ins
+
+**MIX-INS AND THE INCLUDE RELATIONSHIP** Mix-ins establish an _includes_ relationship between a type and its mixed-in type. If our class is `Cat`, and our mixed-in class is `HunterBehavior`, the relationship is "`Cat` includes `HunterBehavior`" This is the semantic meaning of mix-ins and is different from the _is-a_ relationship of inheritance.
+
+### 8.4.3 Mix-in in TypeScript
+
+Extending an instance with the members of another one
+
+```typescript
+function extend<First, Second>(first: First, second: Second): First & Second {
+  const result: unkown = {};
+  for(const prop in first) {
+    if (first.hasOwnProperty(prop)) {
+      (<First>result)[prop] = first[prop];
+    }
+  }
+  
+  for(const prop in second) {
+    if (second.hasOwnProperty(prop)) {
+      (<Second>result)[prop] = second[prop];
+    }  
+  }
+  
+  return <First & Second>result;
+}
+```
+
+### 8.4.4 Exercises
+
+put tracking method into another class
 
