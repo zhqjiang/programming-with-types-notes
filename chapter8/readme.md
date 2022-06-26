@@ -138,7 +138,7 @@ The adapter can hide the actual implementation it translates from by marking it 
 
 ### 8.3.4 Exercises
 
-1. b
+1. c
 2. Just put engine instance into wing class.
 
 ## 8.4 Extending data and behavior
@@ -174,5 +174,12 @@ function extend<First, Second>(first: First, second: Second): First & Second {
 
 ### 8.4.4 Exercises
 
-put tracking method into another class
+put tracking method into another class, then mix it in
 
+## 8.5 Alternatives to purely object-oriented code
+
+### 8.5.1 Sum types
+
+### 8.5.2 Fucntional Programming
+
+### 8.5.3 Generic Programming
