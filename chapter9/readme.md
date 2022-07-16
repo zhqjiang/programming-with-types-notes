@@ -96,3 +96,11 @@ interface Iterable<T> {
 ```
 
 ### 9.3.4
+
+## 9.4 Streaming data
+
+### 9.4.1 Processing pipelines
+
+The components of processing pipelines are functions that take an iterator as argument, do some processing, and return an iterator. Such functions can be chained together to process data as it arrives. This pattern is common in functional porgramming languages and the basis of reactive programming.
+
+### 9.4.2 Exercises
